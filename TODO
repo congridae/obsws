@@ -1,0 +1,4 @@
+- detect error 207 (OBS is not ready to perform the request.) and retry later
+- scene collection change and delay requests
+- make ObsWs.subscribe wait for Reindentify/reconnect before resolving
+- finish typing untyped objects

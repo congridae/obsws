@@ -1,0 +1,21 @@
+{
+    "name": "@conger/obsws",
+    "version": "0.1.0",
+    "license": "MIT",
+    "fmt": {
+        "useTabs": true
+    },
+    "exports": {
+        ".": "./src/mod.ts",
+        "./events": "./src/events.ts",
+        "./requests": "./src/requests.ts"
+    },
+    "publish": {
+        "include": [
+            "LICENSE",
+            "README.md",
+            "deno.json",
+            "src/**/*.ts"
+        ]
+    }
+}
