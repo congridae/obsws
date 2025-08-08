@@ -43,12 +43,13 @@ export class ObsWs {
 	private subscriptions: [string, (event: any) => void][];
 
 	constructor(
-		{ port, password, onError, retryCooldown, requestTimeout }: {
+		{ port, password, onError, retryCooldown, requestTimeout, signal }: {
 			port: number;
 			password?: string;
 			onError?: (err: Error) => void;
 			retryCooldown?: number;
 			requestTimeout?: number;
+			signal?: AbortSignal;
 		},
 	) {
 		this.port = port;
@@ -64,6 +65,7 @@ export class ObsWs {
 		this.subscriptionMask = 0;
 		this.subscriptions = [];
 		this.stage = 0;
+		signal?.addEventListener("abort", () => this.close());
 		this.connect();
 	}
 
